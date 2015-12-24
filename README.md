@@ -5,10 +5,12 @@ Plot histograms from data list in lines
 `Usage: histPlot.py [--help] [options] numbersList`
 
 Utility for plot histgram from a file with numbers list in lines
+
 ```
 Options:
   -h, --help            show this help message and exit
-  -b BINS, --bins=BINS  Number of bins shows in the final plot
+  -T PLOTTYPE, --Type=PLOTTYPE
+                        plot type lineplot or hitogram [line|hist]
   -o OUTPUT, --output=OUTPUT
                         output filename [default: output.pdf]
   -t TITLE, --title=TITLE
@@ -17,6 +19,9 @@ Options:
                         xlabel
   -y YLAB, --ylabel=YLAB
                         ylabel
+  --logy                set log scale y axis
+  -l LABEL, --legend=LABEL
+                        legend of the figure
 ```
 
 
