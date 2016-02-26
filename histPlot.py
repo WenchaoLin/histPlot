@@ -22,6 +22,8 @@ class histPlot(object):
                           help="output filename [default: output.pdf]", default="output.pdf")
         parser.add_option('-t','--title',type="string",dest="title",
                           help="figure title",default="")
+        parser.add_option('-b','--bins',type='int',dest='bins',default=20,
+                          help="Number of bins shows in the final plot")
         parser.add_option('-x','--xlabel',type="string",dest="xlab",
                           help="xlabel",default="")
         parser.add_option('-y','--ylabel',type="string",dest="ylab",
@@ -59,12 +61,13 @@ class histPlot(object):
         plt.title(self.options.title)
         if self.options.plotType == 'hist':
             plt.xlim(0,x.max())
-            n,bins,patches = plt.hist(x, 20,  histtype='bar',
+            n,bins,patches = plt.hist(x, self.options.bins,  histtype='bar',
                                  color=['crimson'],normed=False, alpha=0.85)
         else:
             plt.xlim(0,x.size)
             line, = plt.plot(range(x.size), x, 'r-', label = self.options.label)
-        ax.legend()
+        if self.options.label:
+            ax.legend()
         plt.savefig(self.outFilename)
 
 
